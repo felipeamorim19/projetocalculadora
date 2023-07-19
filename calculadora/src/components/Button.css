@@ -1,0 +1,39 @@
+/* utilizando variaveis em CSS
+    declara-se dentro de :root
+    variavel começa com --
+    usa var() para definir */
+
+:root{
+    --bg-color:white;                            
+    --bg-border:solid 1px #888
+}
+
+button{
+    font-size: 1.4em;;
+    background-color: var(--bg-color);
+    border:none;
+    border-right:var(--bg-border);
+    border-bottom:var(--bg-border);
+    outline: none;                                        /*borda ao passar pelo botao*/
+}
+
+button:active{                                         /*:active é uma psedo classe*/
+    background-color: #ccc;
+}
+
+.duble {
+    grid-column: span 2;
+}
+
+.triple {
+    grid-column: span 3;
+}
+
+.operation{
+    background-color: coral;
+    color: white;
+}
+
+.operation:active{
+    background-color: rgba(255, 166, 0, 0.435);
+}
