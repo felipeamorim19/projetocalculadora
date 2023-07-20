@@ -6,16 +6,49 @@ import Button from "../components/Button";
 
 
 class Calculator extends React.Component{
+
+    state = {
+        displayValue:'0',
+        clearDisplay: false,
+        operation: null,
+        values:[0,0],
+        currents:0  }
+   
    
 
-    inserir(){
-        console.log('inserir')
+    inserir(n){
+        // if(n === '.' && this.state.displayValue.includes('.')){
+        //     return
+        //    }
+
+       
+        //    const clearDisplay = this.state.displayValue === '0' || this.state.clearDisplay === true;
+        //    const valorCorrente = clearDisplay ? ' ' : this.state.displayValue;
+        //    const valordoDisplay = valorCorrente + n ;
+        //    this.setState({
+        //       displayValue: valordoDisplay,
+        //       clearDisplay: false})
+    
+        //     console.log(clearDisplay);
+        //     console.log(valorCorrente);
+        //     console.log(valordoDisplay);
+    
+            console.log(n);   
+           
 
     }
 
     limpar(){
-        console.log('limpar')
-    }
+        const estadoInicial = {
+             displayValue:'0',
+             clearDisplay: false,
+             operation: null,
+             values:[0,0],
+             currents:0  
+     
+         }
+         this.setState(estadoInicial)
+     }
 
     operar(){
         console.log('operar')
@@ -33,7 +66,7 @@ class Calculator extends React.Component{
             <div>
             <h1>Calculadora</h1>
             <div className="calculator">
-                <Display valordisplay='0'/>
+                <Display valordisplay={this.state.displayValue}/>
                 <Button tecla='AC'click={limpar} triple/>
                 <Button tecla='/' click={operar} operation/>
                 <Button tecla='7' click={inserir}/>
@@ -49,7 +82,7 @@ class Calculator extends React.Component{
                 <Button tecla='3' click={inserir}/>
                 <Button tecla='+' click={operar} operation/>
                 <Button tecla='0' click={inserir} duble/>
-                <Button tecla='.' click={operar}/>
+                <Button tecla='.' click={inserir}/>
                 <Button tecla='=' click={operar} operation/>
                 
 
