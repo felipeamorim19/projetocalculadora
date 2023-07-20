@@ -6,7 +6,17 @@ import Button from "../components/Button";
 
 
 class Calculator extends React.Component{
+
+  
    
+     state = {
+     DisplayValue:'5',
+     ClearDisplay: false,
+     Operation: null,
+     values:[0,0],
+     currents:0  }
+
+
 
     inserir(){
         console.log('inserir')
@@ -14,7 +24,15 @@ class Calculator extends React.Component{
     }
 
     limpar(){
-        console.log('limpar')
+       const estadoInicial = {
+            DisplayValue:'0',
+            ClearDisplay: false,
+            Operation: null,
+            values:[0,0],
+            currents:0  
+    
+        }
+        this.setState(estadoInicial)
     }
 
     operar(){
@@ -24,6 +42,7 @@ class Calculator extends React.Component{
 
 
     render(){
+       
         const inserir = () => this.inserir()
 		const limpar = () => this.limpar()   
 		const operar = () => this.operar()
@@ -33,7 +52,7 @@ class Calculator extends React.Component{
             <div>
             <h1>Calculadora</h1>
             <div className="calculator">
-                <Display valordisplay='0'/>
+                <Display valordisplay={this.state.DisplayValue}/>
                 <Button tecla='AC'click={limpar} triple/>
                 <Button tecla='/' click={operar} operation/>
                 <Button tecla='7' click={inserir}/>
@@ -65,3 +84,4 @@ class Calculator extends React.Component{
 }
 
 export default Calculator;
+
